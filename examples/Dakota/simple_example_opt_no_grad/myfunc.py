@@ -8,6 +8,8 @@ inp_file = sys.argv[1]
 
 fid = open(inp_file,'r')
 
+#print fid.read()
+
 # read variables
 first_line = fid.readline()
 n_var = eval(first_line.split()[0])

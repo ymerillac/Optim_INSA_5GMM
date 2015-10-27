@@ -6,8 +6,8 @@ environment,
 
 method,
     #optpp_pds
-    coliny_cobyla
-	#optpp_q_newton
+    #coliny_cobyla
+	optpp_q_newton
 	max_iterations = 50           
 	convergence_tolerance = 1e-4 
 
@@ -24,6 +24,7 @@ interface,
 
 responses,
 	objective_functions = 1	
-	descriptors = 'my_function' 
-	no_gradients
+	descriptors = 'my_function'
+	numerical_gradients
+	#no_gradients
 	no_hessians
