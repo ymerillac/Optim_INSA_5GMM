@@ -1,9 +1,10 @@
 import sys
 import numpy
+import math
 import dakota_utils #--> le module a creer
 
 def my_func(x):
-    return x[0]**2+x[1]**2
+    return math.exp(x[0]**2+x[1]**2)
 
 x=dakota_utils.read_input(sys.argv[1])
 
@@ -13,4 +14,3 @@ dakota_utils.write_output(sys.argv[2],fval)
 
 
 
-    
