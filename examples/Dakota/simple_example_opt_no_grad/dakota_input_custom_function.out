@@ -1,0 +1,68 @@
+Dakota version 6.2 released May 15 2015.
+Subversion revision 3394 built Oct 13 2015 16:44:57.
+Running serial Dakota executable in serial mode.
+Start time: Tue Nov  3 14:34:45 2015
+
+-------------------------------
+Begin DAKOTA input file
+dakota_input_custom_function.in
+-------------------------------
+## DAKOTA INPUT FILE - dakota_rosenbrock.in
+
+
+environment,
+	graphics
+	tabular_graphics_data
+	tabular_graphics_file = 'optim_res.dat'
+
+method,
+    #optpp_pds
+    coliny_cobyla
+	#coliny_direct
+	#hybrid collaborative optpp_q_newton
+	#efficient_global
+	#optpp_fd_newton
+	#optpp_q_newton
+	#optpp_newton
+     	max_iterations = 50           
+     	convergence_tolerance = 1e-4 
+
+variables,
+	continuous_design = 2
+	initial_point  -4.2  4.0
+	lower_bounds   -5.0 -5.0	
+	upper_bounds    5.0  5.0
+	descriptors     'x1' 'x2'
+
+interface,
+	system
+	analysis_driver = 'python myfunc2.py'
+
+responses,
+	objective_functions = 1	
+	descriptors = 'my_function'
+	#numerical_gradients
+	no_gradients
+	no_hessians
+	#numerical_hessians
+---------------------
+End DAKOTA input file
+---------------------
+
+Using Dakota input file 'dakota_input_custom_function.in'
+Writing new restart file dakota.rst
+
+Seed (system-generated) = 1446557685
+
+>>>>> Executing environment.
+
+>>>>> Running coliny_cobyla iterator.
+
+---------------------
+Begin Evaluation    1
+---------------------
+Parameters for evaluation 1:
+                     -4.2000000000e+00 x1
+                      4.0000000000e+00 x2
+
+python myfunc2.py /tmp/dakota_params_0ace9d5d /tmp/dakota_results_1fb3d134

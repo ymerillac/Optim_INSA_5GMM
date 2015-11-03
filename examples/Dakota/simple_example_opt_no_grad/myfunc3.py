@@ -10,7 +10,7 @@ x=dakota_utils.read_input(sys.argv[1])
 
 fval = my_func(x)
 
-dakota_utils.write_output(sys.argv[2],fval)
+dakota_utils.write_output(sys.argv[2],fval,"fonction 3")
 
 
 

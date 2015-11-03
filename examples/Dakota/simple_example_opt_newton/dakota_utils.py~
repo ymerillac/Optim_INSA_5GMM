@@ -17,6 +17,6 @@ def read_input(inp_file):
 
 def write_output(out_file,fval):
     fichier=open(sys.argv[2],'w')
-    fichier.write(str(fval)+'    my_function\n')
+    fichier.write(str(fval)+'    myfunction\n')
     fichier.close()
 
