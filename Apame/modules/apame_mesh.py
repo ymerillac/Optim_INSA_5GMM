@@ -3,7 +3,7 @@ import vtk
 
 class read_vtk_mesh:
     
-    def __init__(self,vtk_mesh,wake_length,te_angle_detection=100.,neighbour_limit_angle=60.):
+    def __init__(self,vtk_mesh,wake_length,te_angle_detection=140.,neighbour_limit_angle=60.):
         """
         Constructor
         """
@@ -36,6 +36,15 @@ class read_vtk_mesh:
         self.__nb_vtk_cells = self.__vtk_model.GetNumberOfCells()
         self.__nb_vtk_points = self.__vtk_model.GetNumberOfPoints()
         
+    def __write_vtk_mesh(self):
+        """
+        Export to file
+        """
+        vtk_writer = vtk.vtkXMLPolyDataWriter()
+        vtk_writer.SetInput(self.__vtk_model)
+        vtk_writer.SetFileName(self.__vtk_mesh)
+        vtk_writer.Write()
+        
     def write_apame_mesh(self,fid):
         """
         Write geometry part of the apame input file
@@ -67,6 +76,23 @@ class read_vtk_mesh:
             y = self.__wake_points[i][1]
             z = self.__wake_points[i][2]
             fid.write(str(x)+' '+str(y)+' '+str(z)+'\n')
+            
+    def write_data(self,data_dict):
+        """
+        Store flow data in vtk mesh
+        """
+        for data_id,data in data_dict.items():
+            nb_cases = data.shape[1]
+            for i in xrange(nb_cases):
+                vtk_array = vtk.vtkDoubleArray()
+                vtk_array.SetName(data_id+'_'+str(i+1))
+                vtk_array.SetNumberOfComponents(1)
+                for value in data[:,i]:
+                    vtk_array.InsertNextValue(value)
+                self.__vtk_model.GetCellData().AddArray(vtk_array)
+        # update vtk file
+        self.__write_vtk_mesh()
+                
     
     def __write_panels(self,fid):
         """
@@ -136,20 +162,22 @@ class read_vtk_mesh:
             p3 = i2+self.__nb_vtk_points
             p4 = i1+self.__nb_vtk_points
             wake_pts = [p1,p2,p3,p4]
-            if not self.__check_wake_panel_orientation(wake_pts):
-                wake_pts.reverse()
             # get adjacent panels
             adj_cells = self.__get_common_cells(p1, p2)
             assert(len(adj_cells)==2)
+            # get first adjacent cell normal
+            ref_normal = self.__get_cell_normal(adj_cells[0])
+            if not self.__check_wake_panel_orientation(wake_pts,ref_normal):
+                wake_pts.reverse()
             self.__wake_panels[i] = (10,wake_pts,adj_cells)
             
-    def __check_wake_panel_orientation(self,wake_pts):
+    def __check_wake_panel_orientation(self,wake_pts,ref_normal):
         p1_xyz = numpy.array(self.__vtk_model.GetPoint(wake_pts[0]))
         p2_xyz = numpy.array(self.__vtk_model.GetPoint(wake_pts[1]))
         p3_xyz = self.__wake_points[wake_pts[2]-self.__nb_vtk_points]
         p4_xyz = self.__wake_points[wake_pts[3]-self.__nb_vtk_points]
         n = numpy.cross(p3_xyz-p1_xyz,p4_xyz-p2_xyz)
-        return n[2]>0.
+        return numpy.dot(n,ref_normal)>0.
         
             
     def __compute_panel(self,cell_id):

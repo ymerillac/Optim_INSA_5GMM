@@ -1,4 +1,5 @@
 import os
+import numpy
 from apame_mesh import read_vtk_mesh
 
 def write_inp_file(out_filename,
@@ -114,4 +115,75 @@ def run_case(vtk_mesh,
         print "*** Apame ran successfully !"
     else:
         print "*** Apame ran with Errors ..."
+    polar,flow_data = read_out_file(result_file,None)
+    numpy.savetxt(case_name+'_polar.dat',polar)
+    print "*** Store output data in "+vtk_mesh
+    vtk_reader.write_data(flow_data)
+    print "Done !"
+        
+def get_line(fid,keyword):
+    line = fid.readline()
+    while keyword not in line:
+        line = fid.readline()
+    return line
+
+def read_panel_data(fid,keyword,nb_panel,nb_cases):
+    # init result array
+    out_data = numpy.zeros((nb_panel,nb_cases))
+    # go to ine containing keyword
+    get_line(fid,keyword)
+    # get data
+    for i in xrange(nb_panel):
+        line = fid.readline()
+        values = [eval(word) for word in line.split()]
+        assert(len(values)==nb_cases)
+        out_data[i,:] = numpy.array(values)
+    return out_data
+        
+def read_out_file(out_file,data_id_list):
+    """
+    Read apame output file and extract
+    """
+    # open result file
+    fid = open(out_file)
+    # read number of panels
+    get_line(fid,'PANEL_NUM_NO_WAKE')
+    line = fid.readline()
+    nb_panels = eval(line)
+    # read number of cases
+    get_line(fid,'CASE_NUM')
+    line = fid.readline()
+    case_num = eval(line)
+    print "Number of cases: ",case_num
+    # get alpha list
+    line = fid.readline()
+    alpha_list = numpy.array([eval(word) for word in line.split()])
+    # get beta list
+    line = fid.readline()
+    beta_list = numpy.array([eval(word) for word in line.split()])
+    assert(len(alpha_list)==case_num and len(beta_list)==case_num)
+    # convert to degrees
+    rad2deg = 180./numpy.pi
+    alpha_list*=rad2deg
+    beta_list*=rad2deg
+    # export polar
+    get_line(fid,'CDRAG')
+    line = fid.readline()
+    cd = numpy.array([eval(word) for word in line.split()])
+    get_line(fid,'CLIFT')
+    line = fid.readline()
+    cl = numpy.array([eval(word) for word in line.split()])
+    polar = numpy.array([alpha_list,cl,cd]).T
+    #return polar
+    # export other data
+    res_data = {}
+    for data_id in ['VELOCITY','CP','DIPOLE','SOURCE']:
+        res_data[data_id] = read_panel_data(fid,data_id,nb_panels,case_num)
+    return polar,res_data
+    
+    
+    
+    
+    
+    
     
