@@ -49,11 +49,55 @@ def create(m,p,t,C=1,n=150):
 
     return Xu,Xl,Yu,Yl
 
+def create_wing(nb_points=150):
+    fichier=open(sys.argv[1],'r')
+    nb_lines=0 # moche
+    while fichier.readline():
+        nb_lines+=1
+    fichier.close()
+    nb_profiles=0
+    corde=[]
+    m=[]
+    y=[]
+    p=[]
+    t=[]
+    wing=[] # wing will be a list of 2d wings
+    fichier=open(sys.argv[1],'r')
+    fichier.readline()
+    for i in range(nb_lines-1):
+	temp=fichier.readline()
+        temp=temp.split()
+        val=float(temp[1])
+        temp=temp[0].split(".")
+	temp=temp[1]
+        if temp=='Y':
+            y.append(val)
+        elif temp=='M':
+            m.append(val)    
+        elif temp=='P':
+            p.append(val)
+        elif temp=='T':
+            t.append(val)
+        elif temp=='CORDE':
+            corde.append(val)
+        else: # le mieux serait de faire une exception
+            print("Erreur : caractere non reconnu",temp)
+    if not(len(m)==len(p)==len(y)==len(t)==len(corde)):
+        print("Erreur : les listes ont une taille differente")
+    for i in range(len(m)):
+        temp_wing=create(m[i],p[i],t[i],corde[i],nb_points)
+        temp_wing=list(temp_wing)
+	temp_wing.insert(0,y[i])
+	wing.append(temp_wing)
+    return wing
+
 
 # tests:
 if __name__=="__main__":
-    Xu,Xl,Yu,Yl=create(m=0.08,p=0.4,t=0.15,C=1,n=150)
-    plt.plot(Xu,Yu,"b",Xl,Yl,"b")
-    plt.ylim(-0.5,0.5)
-    plt.xlim(-0.,1.)
-    plt.show()
+    #Xu,Xl,Yu,Yl=create(m=0.08,p=0.4,t=0.15,C=1,n=150)
+    #plt.plot(Xu,Yu,"b",Xl,Yl,"b")
+    #plt.ylim(-0.5,0.5)
+    #plt.xlim(-0.,1.)
+    #plt.show()
+    W=create_wing()
+    # plot a faire
