@@ -3,6 +3,7 @@
 import matplotlib.pyplot as plt
 import sys
 from numpy import *
+from mpl_toolkits.mplot3d import Axes3D
 
 def create(m,p,t,C=1,n=150):
     """ NACA calculate the NACA profile of an airfoil where the inputs are:
@@ -99,5 +100,10 @@ if __name__=="__main__":
     #plt.ylim(-0.5,0.5)
     #plt.xlim(-0.,1.)
     #plt.show()
-    W=create_wing()
-    # plot a faire
+    wing=create_wing()
+    fig = plt.figure()
+    ax = fig.gca(projection='3d')
+    for profile in wing:
+        ax.plot(profile[1],profile[3],profile[0],'b')
+        ax.plot(profile[2],profile[4],profile[0],'b')
+    plt.show()
