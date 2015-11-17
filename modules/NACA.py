@@ -81,10 +81,10 @@ def create_wing(nb_points=150):
             t.append(val)
         elif temp=='CORDE':
             corde.append(val)
-        else: # le mieux serait de faire une exception
-            print("Erreur : caractere non reconnu",temp)
+        else:
+            raise TypeError("Erreur : caractere non reconnu",temp)
     if not(len(m)==len(p)==len(y)==len(t)==len(corde)):
-        print("Erreur : les listes ont une taille differente")
+        raise TypeError("Erreur : les listes ont une taille differente")
     for i in range(len(m)):
         temp_wing=create(m[i],p[i],t[i],corde[i],nb_points)
         temp_wing=list(temp_wing)
