@@ -20,3 +20,9 @@ def write_output(out_file,fval,name):
     fichier.write(str(fval)+'    '+str(name)+'\n')
     fichier.close()
 
+def write_outputs(out_file,fvalues,name_list):
+    fichier=open(sys.argv[2],'w')
+    for i,name in enumerate(name_list):
+        fval = fvalues[i]
+        fichier.write(str(fval)+'    '+str(name)+'\n')
+    fichier.close()
