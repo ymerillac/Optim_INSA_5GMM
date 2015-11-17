@@ -1,29 +1,25 @@
-from NACA import create as create_naca
+from NACA import create_wing
 import numpy
 import vtk
+import dakota_utils
 
-semi_span = 5.
-n_sections = 10
 n_naca_pts = 50
+wing=create_wing("/home/david/Documents/Projet/Optim_INSA_5GMM/examples/Dakota/test_wing/TEST",n_naca_pts) # desole pour le chemin
+n_sections=len(wing)
 n_section_pts = 2*n_naca_pts-1
-chord = 1.
-m = 0.
-p = 0.4
-t = 0.12
-y_sections = numpy.linspace(-semi_span,semi_span,n_sections)
 
 # build mesh
 vtk_model = vtk.vtkStructuredGrid()
 vtk_model.SetDimensions(n_section_pts,n_sections,1)
 # build points
 vtk_points = vtk.vtkPoints()
-for i,y in enumerate(y_sections):
-    Xu,Xl,Yu,Yl=create_naca(m,p,t,C=chord,n=n_naca_pts)
-    upper_pts = numpy.array([Xu,Yu]).T
-    lower_pts = numpy.array([Xl,Yl]).T
+
+for j in xrange(n_sections):
+    upper_pts = numpy.array([wing[j][1],wing[j][3]]).T
+    lower_pts = numpy.array([wing[j][2],wing[j][4]]).T
     section_pts = numpy.concatenate((lower_pts[::-1],upper_pts[1:]))
-    for j in xrange(n_section_pts):
-        vtk_points.InsertNextPoint(section_pts[j,0],y,section_pts[j,1])
+    for i in xrange(n_section_pts):
+        vtk_points.InsertNextPoint(section_pts[i,0],wing[j][0],section_pts[i,1])
 # set points
 vtk_model.SetPoints(vtk_points)
 

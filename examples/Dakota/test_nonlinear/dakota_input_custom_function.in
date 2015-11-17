@@ -16,13 +16,7 @@ method,
 	optpp_q_newton
 	#optpp_newton
      	max_iterations = 50           
-     	convergence_tolerance = 1e-4 
-	linear_inequality_constraint_matrix 1 0
-	0 1
-	linear_equality_constraint_matrix 2 -1
-	linear_inequality_upper_bounds nan nan
-	linear_inequality_lower_bounds 1 1
-	linear_equality_targets 2
+     	convergence_tolerance = 1e-4
 	
 
 variables,
@@ -39,8 +33,8 @@ interface,
 
 responses,
 	objective_functions = 1	
-	#nonlinear_equality_constraints 1 c'est la que ca coince
-	descriptors = 'my_function'
+	nonlinear_equality_constraints 1
+	descriptors = 'my_function' 'my_constraint'
 	numerical_gradients
 	#no_gradients
 	no_hessians

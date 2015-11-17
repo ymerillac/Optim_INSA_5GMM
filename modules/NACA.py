@@ -53,9 +53,9 @@ def create(m,p,t,C=1,n=150):
 
     return Xu,Xl,Yu,Yl
 
-def create_wing(nb_points=150):
-    fichier=open(sys.argv[1],'r')
-    nb_lines=0 # moche
+def create_wing(sz_input_file,nb_points=150):
+    fichier=open(sz_input_file,'r')
+    nb_lines=0
     while fichier.readline():
         nb_lines+=1
     fichier.close()
@@ -66,7 +66,7 @@ def create_wing(nb_points=150):
     p=[]
     t=[]
     wing=[] # wing will be a list of 2d wings
-    fichier=open(sys.argv[1],'r')
+    fichier=open(sz_input_file,'r')
     fichier.readline()
     for i in range(nb_lines-1):
 	temp=fichier.readline()
@@ -103,7 +103,7 @@ if __name__=="__main__":
     #plt.ylim(-0.5,0.5)
     #plt.xlim(-0.,1.)
     #plt.show()
-    wing=create_wing()
+    wing=create_wing("/home/david/Documents/Projet/Optim_INSA_5GMM/examples/Dakota/test_wing/TEST")
     fig = plt.figure()
     ax = fig.gca(projection='3d')
     for profile in wing:
