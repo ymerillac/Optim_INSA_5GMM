@@ -41,7 +41,10 @@ class read_vtk_mesh:
         Export to file
         """
         vtk_writer = vtk.vtkXMLPolyDataWriter()
-        vtk_writer.SetInput(self.__vtk_model)
+        if vtk.VTK_MAJOR_VERSION <= 5:
+            vtk_writer.SetInput(self.__vtk_model)
+        else:
+            vtk_writer.SetInputData(self.__vtk_model)
         vtk_writer.SetFileName(self.__vtk_mesh)
         vtk_writer.Write()
         
