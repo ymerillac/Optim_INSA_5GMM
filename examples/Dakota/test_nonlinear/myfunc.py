@@ -8,7 +8,7 @@ def my_func(x):
 def constraint(x):
 	return x[0]-2.
 
-x=dakota_utils.read_input(sys.argv[1])
+x,varnames=dakota_utils.read_input(sys.argv[1])
 
 fval = my_func(x)
 cstr = constraint(x)

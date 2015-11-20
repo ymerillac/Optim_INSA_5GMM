@@ -13,7 +13,7 @@ def read_input(inp_file):
         x[i] = eval(words[0])
         varnames.append(words[1].strip())
     fichier.close()
-    return x
+    return x,varnames
 
 def write_output(out_file,fval,name):
     fichier=open(sys.argv[2],'w')
