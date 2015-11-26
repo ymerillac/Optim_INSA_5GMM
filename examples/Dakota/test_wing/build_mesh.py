@@ -10,15 +10,15 @@ def write_test_file(m,p,t,ystart,yend,nsections=5):
     for i in xrange(nsections):
         fid.write('SECTION'+str(i+1)+'.Y     '+str(y_list[i])+'\n')
         fid.write('SECTION'+str(i+1)+'.CORDE 1.0\n')
-        fid.write('SECTION'+str(i+1)+'.M     '+str(m)+'\n')
-        fid.write('SECTION'+str(i+1)+'.P     '+str(p)+'\n')
-        fid.write('SECTION'+str(i+1)+'.T     '+str(t)+'\n')
+        fid.write('SECTION'+str(i+1)+'.M     '+str(m[i])+'\n')
+        fid.write('SECTION'+str(i+1)+'.P     '+str(p[i])+'\n')
+        fid.write('SECTION'+str(i+1)+'.T     '+str(t[i])+'\n')
     fid.close()
 
 n_naca_pts = 50
-M=0.
-P=0.
-T=0.12
+M=[0.,0.1,0.1,0.4,0.7]
+P=[0.4, 0.4, 0.4, 0.4, 0.4] 
+T=[0.12,0.12,0.12,0.12,0.14] 
 write_test_file(M,P,T,-5.,5.,nsections=5)
 wing=create_wing("TEST",n_naca_pts)
 n_sections=len(wing)
