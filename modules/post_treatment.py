@@ -1,10 +1,9 @@
 import sys
 from matplotlib.pyplot import *
 import numpy
+from math import sqrt
 
-#def convergence():
-inp_file=sys.argv[1] # reussir a choper le nom du fichier dans lequel sont stockees les donnees
-		     #(i.e. optim_res.dat, qui est defini dans le .in)
+inp_file=sys.argv[1] 
 fichier=open(inp_file,'r')
 nb_it=0
 first_line=fichier.readline()
@@ -28,10 +27,11 @@ fichier.close()
 figure()
 plot(range(1,nb_it+1),func)
 title("fonction cout")
+sq=sqrt(nvar)
 for col in xrange(nvar):
 	figure()
 	plot(range(1,nb_it+1),var.transpose()[:][col])
 	title(first_line[col])
 show()
-#return var,func
+
 

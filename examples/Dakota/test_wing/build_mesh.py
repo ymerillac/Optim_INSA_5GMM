@@ -16,9 +16,9 @@ def write_test_file(m,p,t,ystart,yend,nsections=5):
     fid.close()
 
 n_naca_pts = 50
-M=[0.,0.1,0.1,0.4,0.7]
+M=[0.,0.,0.,0.,0.]
 P=[0.4, 0.4, 0.4, 0.4, 0.4] 
-T=[0.12,0.12,0.12,0.12,0.14] 
+T=[0.12,0.12,0.2,0.12,0.12] 
 write_test_file(M,P,T,-5.,5.,nsections=5)
 wing=create_wing("TEST",n_naca_pts)
 n_sections=len(wing)
