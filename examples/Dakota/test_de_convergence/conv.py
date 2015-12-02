@@ -11,7 +11,7 @@ Cx=numpy.zeros(49)
 Cz=numpy.zeros(49)
 it=0
 for i in N_sections:
-	print('Nombre de sections : {}'.format(int(i)))
+	print('Test de convergence - section numero {}'.format(int(i)))
 	M=numpy.zeros(i)
 	P=0.4*numpy.ones(i)
 	T=0.12*numpy.ones(i)
@@ -23,6 +23,7 @@ for i in N_sections:
 	Cx[it]=float(tmp[2])
 	Cz[it]=float(tmp[1])
 	it+=1
+	fid.close()
 
 plt.figure()
 plt.plot(N_sections,Cx)

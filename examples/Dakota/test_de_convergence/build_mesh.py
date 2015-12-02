@@ -4,7 +4,10 @@ import vtk
 import dakota_utils
 
 def write_test_file(m,p,t,ystart,yend,nsections):
-    y_list = numpy.linspace(ystart,yend,nsections)
+    #y_list = numpy.linspace(ystart,yend,nsections)
+    theta=numpy.linspace(0.,numpy.pi,nsections)
+    span=yend-ystart
+    y_list=-0.5*span*numpy.cos(theta)
     fid = open('wing','w')
     fid.write("# id variable              valeur\n")
     for i in xrange(nsections):
