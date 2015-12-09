@@ -1,0 +1,77 @@
+**********************************************************
+OPT++ version 2.4
+Job run at Tue Nov 17 15:57:09 2015
+
+**********************************************************
+
+		 NIPS Iteration Summary
+
+	Nonlinear Interior-Point Method Method with Line Search 
+ 
+  Merit Function =  1 
+
+  Iter    F(x)       mu          alpha      Merit    feval    btracks  Penalty
+
+    0        33.64            0 
+    1        5.218            0           1        5.218    2   0      1e+02
+    2        4.018            0           1        4.018    3   0      1e+02
+    3            4            0           1            4    4   0      1e+02
+L2 norm =    7.071e-06  ftol =       0.0001
+
+
+=========  Solution from Opt++  ===========
+
+Optimization method       = Nonlinear Interior-Point Method
+Dimension of the problem  = 2
+No. equalities            = 1
+No. inequalities          = 0
+Merit Function (0= NormFmu, 1 = Argaez, 2 = Vanderbei) = 1
+Return code               = 2 (Algorithm converged - Norm of gradient less than relative gradient tolerance)
+No. iterations taken      = 3
+No. function evaluations  = 4
+No. gradient evaluations  = 4
+No. backtracks in lnsrch  = 0
+
+
+=========  Solution from Opt++  ===========
+
+
+    i	    xc 		 grad  		 fcn_accrcy 
+     0           2	       4.002	    2.22e-16
+     1   1.104e-08	       1e-05	    2.22e-16
+Function Value     =            4
+Norm of gradient   =        4.002
+
+
+==============================================
+
+
+
+=========  Solution from Opt++  ===========
+
+
+    i	   y    
+
+    0       4.002
+
+
+=====================================
+
+
+    i	    z 	      s
+
+
+
+==========  Tolerances  ===========
+
+Machine Epsilon      = 2.22045e-16
+Maximum Step         = 1000
+Minimum Step         = 1.49012e-08
+Maximum Iter         = 50
+Maximum Backtracks   = 5
+Maximum Fcn Eval     = 1000
+Step Tolerance       = 1.49012e-08
+Function Tolerance   = 0.0001
+Constraint Tolerance = 1.49012e-08
+Gradient Tolerance   = 0.0001
+LineSearch Tolerance = 0.0001

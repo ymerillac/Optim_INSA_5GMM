@@ -1,0 +1,71 @@
+**********************************************************
+OPT++ version 2.4
+Job run at Fri Oct 30 17:10:31 2015
+
+**********************************************************
+readOptInput: No opt.input file found
+readOptInput: default values will be used
+
+
+=========  Initial state  ===========
+
+
+    i	    xc 		 grad  		 fcn_accrcy 
+     0        -4.2	       6.336	    2.22e-16
+     1           4	      -6.033	    2.22e-16
+Function Value     =        2.963
+Norm of gradient   =        8.749
+
+
+==============================================
+
+
+		Bound constrained Quasi-Newton Method with Line Search
+
+  Iter      F(x)       ||grad||     ||step||      f/g
+
+    0        2.963        8.749
+    1        2.908        6.271       0.5463  B     3     2
+    2        2.766     0.006501      0.04086  B     6     3
+OptBCNewtonLike : reduced_grad_norm = 0.00650068
+OptBCNewtonLike : cannot take a step 
+
+
+=========  Solution from Opt++  ===========
+
+Optimization method       = Bound constrained Quasi-Newton
+Dimension of the problem  = 2
+No. of bound constraints  = 2
+Return code               = -1 (Algorithm terminated - No longer able to compute step with sufficient decrease)
+No. iterations taken      = 3
+No. function evaluations  = 15
+No. gradient evaluations  = 3
+
+
+=========  Solution from Opt++  ===========
+
+
+    i	    xc 		 grad  		 fcn_accrcy 
+     0      -4.625	   -0.001139	    2.22e-16
+     1       4.405	     -0.0064	    2.22e-16
+Function Value     =        2.766
+Norm of gradient   =     0.006501
+
+
+==============================================
+
+
+
+==========  Tolerances  ===========
+
+Machine Epsilon      = 2.22045e-16
+Maximum Step         = 1000
+Minimum Step         = 1.49012e-08
+Maximum Iter         = 50
+Maximum Backtracks   = 5
+Maximum Fcn Eval     = 1000
+Step Tolerance       = 1.49012e-08
+Function Tolerance   = 0.0001
+Constraint Tolerance = 1.49012e-08
+Gradient Tolerance   = 0.0001
+LineSearch Tolerance = 0.0001

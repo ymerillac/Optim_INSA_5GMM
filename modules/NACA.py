@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import sys
 from numpy import *
 from mpl_toolkits.mplot3d import Axes3D
+import mesh_utils
 
 def create(m,p,t,C=1,n=150):
     """ NACA calculate the NACA profile of an airfoil where the inputs are:
@@ -53,23 +54,21 @@ def create(m,p,t,C=1,n=150):
 
     return Xu,Xl,Yu,Yl
 
-def create_wing(sz_input_file,nb_points=150):
-    fichier=open(sz_input_file,'r')
-    nb_lines=0
-    while fichier.readline():
-        nb_lines+=1
+def create_wing(input_file,wing_name):
+    # CREATION D'UNE AILE A PARTIR D'UN FICHIER CONTENANT LES DONNEES M,P,T,CHORD ET SPAN POUR LA SECTION ROOT ET LA SECTION TIP
+    fichier=open(input_file,'r')
+    lines=fichier.readlines()
     fichier.close()
-    nb_profiles=0
     corde=[]
     m=[]
     y=[]
     p=[]
     t=[]
     wing=[] # wing will be a list of 2d wings
-    fichier=open(sz_input_file,'r')
-    fichier.readline()
-    for i in range(nb_lines-1):
-	temp=fichier.readline()
+    n_sections=-1
+    n_naca_points=-1
+    lines.pop(0)
+    for temp in lines:
         temp=temp.split()
         val=float(temp[1])
         temp=temp[0].split(".")
@@ -84,29 +83,36 @@ def create_wing(sz_input_file,nb_points=150):
             t.append(val)
         elif temp=='CORDE':
             corde.append(val)
+        elif temp=='N_SECTIONS':
+	    n_sections=int(val)
+	elif temp=='N_NACA_PTS':
+	    n_naca_points=int(val)
         else:
             raise TypeError("Erreur : caractere non reconnu",temp)
     if not(len(m)==len(p)==len(y)==len(t)==len(corde)):
         raise TypeError("Erreur : les listes ont une taille differente")
-    for i in range(len(m)):
-        temp_wing=create(m[i],p[i],t[i],corde[i],nb_points)
-        temp_wing=list(temp_wing)
-	temp_wing.insert(0,y[i])
-	wing.append(temp_wing)
-    return wing
+    if n_sections < 5:
+	raise ValueError("Erreur : nombre de sections insuffisant")
+    if n_naca_points < 10:
+	raise ValueError("Erreur : nombre de points par profil insuffisant")
+    fichier.close()
+    root=[m[0],p[0],t[0],corde[0]]
+    tip=[m[1],p[1],t[1],corde[1]]
+
+    mesh_utils.create_mesh_linear_interp(wing_name,root,tip,2.*y[1],n_sections,n_naca_points)
 
 
 # tests:
 if __name__=="__main__":
-    #Xu,Xl,Yu,Yl=create(m=0.08,p=0.4,t=0.15,C=1,n=150)
-    #plt.plot(Xu,Yu,"b",Xl,Yl,"b")
-    #plt.ylim(-0.5,0.5)
-    #plt.xlim(-0.,1.)
-    #plt.show()
-    wing=create_wing("/home/david/Documents/Projet/Optim_INSA_5GMM/examples/Dakota/test_wing/TEST")
-    fig = plt.figure()
-    ax = fig.gca(projection='3d')
-    for profile in wing:
-        ax.plot(profile[1],profile[3],profile[0],'b')
-        ax.plot(profile[2],profile[4],profile[0],'b')
+    Xu,Xl,Yu,Yl=create(m=0.08,p=0.4,t=0.15,C=1,n=150)
+    plt.plot(Xu,Yu,"b",Xl,Yl,"b")
+    plt.ylim(-0.5,0.5)
+    plt.xlim(-0.,1.)
     plt.show()
+    #wing=create_wing("/home/david/Documents/Projet/Optim_INSA_5GMM/examples/Dakota/test_wing/TEST")
+    #fig = plt.figure()
+    #ax = fig.gca(projection='3d')
+    #for profile in wing:
+        #ax.plot(profile[1],profile[3],profile[0],'b')
+        #ax.plot(profile[2],profile[4],profile[0],'b')
+    #plt.show()

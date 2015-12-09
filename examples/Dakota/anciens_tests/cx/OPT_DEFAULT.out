@@ -1,0 +1,97 @@
+**********************************************************
+OPT++ version 2.4
+Job run at Sun Dec  6 21:01:37 2015
+
+**********************************************************
+readOptInput: No opt.input file found
+readOptInput: default values will be used
+
+
+=========  Initial state  ===========
+
+
+    i	    xc 		 grad  		 fcn_accrcy 
+     0           0	     0.01385	    2.22e-16
+     1           0	     0.02432	    2.22e-16
+     2           0	     0.02081	    2.22e-16
+     3           0	     0.02413	    2.22e-16
+     4           0	     0.01388	    2.22e-16
+     5         0.4	           0	    2.22e-16
+     6         0.4	           0	    2.22e-16
+     7         0.4	           0	    2.22e-16
+     8         0.4	           0	    2.22e-16
+     9         0.4	           0	    2.22e-16
+    10        0.12	   -0.004723	    2.22e-16
+    11        0.12	    0.009625	    2.22e-16
+    12        0.12	     0.02889	    2.22e-16
+    13        0.12	    0.009624	    2.22e-16
+    14        0.12	    -0.00472	    2.22e-16
+Function Value     =   -5.796e-05
+Norm of gradient   =      0.05527
+
+
+==============================================
+
+
+		Bound constrained Quasi-Newton Method with Line Search
+
+  Iter      F(x)       ||grad||     ||step||      f/g
+
+    0   -5.796e-05      0.05527
+    1   -0.0001534      0.02717     0.009237  B     4     2
+checkConvg: deltaf =    9.542e-05  ftol =       0.0001
+OptBCNewtonLike : reduced_grad_norm = 0.027167
+OptBCNewtonLike : convergence achieved. 
+
+
+=========  Solution from Opt++  ===========
+
+Optimization method       = Bound constrained Quasi-Newton
+Dimension of the problem  = 15
+No. of bound constraints  = 15
+Return code               = 2 (Algorithm converged - Difference in successive fcn values less than tolerance)
+No. iterations taken      = 1
+No. function evaluations  = 4
+No. gradient evaluations  = 2
+
+
+=========  Solution from Opt++  ===========
+
+
+    i	    xc 		 grad  		 fcn_accrcy 
+     0   -0.002315	   -0.001683	    2.22e-16
+     1   -0.004064	   -0.001089	    2.22e-16
+     2   -0.003477	    -0.01786	    2.22e-16
+     3   -0.004033	     0.00204	    2.22e-16
+     4   -0.002319	   -0.001797	    2.22e-16
+     5         0.4	   4.718e-05	    2.22e-16
+     6         0.4	   0.0001461	    2.22e-16
+     7         0.4	   0.0001329	    2.22e-16
+     8         0.4	   0.0001157	    2.22e-16
+     9         0.4	  -8.089e-06	    2.22e-16
+    10      0.1208	    0.001258	    2.22e-16
+    11      0.1184	    0.008527	    2.22e-16
+    12      0.1152	     0.01605	    2.22e-16
+    13      0.1184	    0.008607	    2.22e-16
+    14      0.1208	    0.001229	    2.22e-16
+Function Value     =   -0.0001534
+Norm of gradient   =      0.02717
+
+
+==============================================
+
+
+
+==========  Tolerances  ===========
+
+Machine Epsilon      = 2.22045e-16
+Maximum Step         = 1000
+Minimum Step         = 1.49012e-08
+Maximum Iter         = 50
+Maximum Backtracks   = 5
+Maximum Fcn Eval     = 1000
+Step Tolerance       = 1.49012e-08
+Function Tolerance   = 0.0001
+Constraint Tolerance = 1.49012e-08
+Gradient Tolerance   = 0.0001
+LineSearch Tolerance = 0.0001
