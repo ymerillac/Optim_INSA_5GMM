@@ -99,7 +99,7 @@ def create_wing(input_file,wing_name):
     root=[m[0],p[0],t[0],corde[0]]
     tip=[m[1],p[1],t[1],corde[1]]
 
-    mesh_utils.create_mesh_linear_interp(wing_name,root,tip,2.*abs(y[0]),n_sections,n_naca_points)
+    mesh_utils.create_mesh_linear_interp(wing_name,root,tip,2.*y[1],n_sections,n_naca_points)
 
 # tests:
 if __name__=="__main__":

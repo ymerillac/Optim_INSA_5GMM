@@ -24,8 +24,6 @@ responses,
     nonlinear_inequality_constraints = 1
     descriptors = 'my_function' 'my_constraint'
     numerical_gradients fd_step_size 0.0005
-#0.0005
-# verifier que au final, les paramètres m,p,t recrachés correspondent bien au cd et cl optimal
     #no_gradients
     no_hessians
     #numerical_hessians
