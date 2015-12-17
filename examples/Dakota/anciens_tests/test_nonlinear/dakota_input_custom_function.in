@@ -33,7 +33,7 @@ interface,
 
 responses,
 	objective_functions = 1	
-	nonlinear_equality_constraints 1
+	nonlinear_inequality_constraints = 1
 	descriptors = 'my_function' 'my_constraint'
 	numerical_gradients
 	#no_gradients

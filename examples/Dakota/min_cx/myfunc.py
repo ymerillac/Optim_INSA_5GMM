@@ -6,7 +6,7 @@ import NACA
 from apame_utils import run_case
 
 # constantes
-n_sections=21
+n_sections=31
 n_naca_pts=50
 chord=[1.,1.]
 span=10.
@@ -35,6 +35,32 @@ def my_func(M,P,T):
 		cz[i]=float(tmp[1])
 	fid.close()
 	return min(cx)
+
+def my_constraint(M,P,T):
+	# on veut Cz >= 0.5
+	mesh_utils.write_wing_file(M,P,T,chord,span,n_sections,n_naca_pts)
+	NACA.create_wing('current_wing','output')
+	run_apame()
+	fid = open('output_polar.dat','r')
+	nb_lines=0
+	while fid.readline():
+		nb_lines+=1
+	if nb_lines==0:
+		raise TypeError("Empty file")
+	fid.close()
+	fid = open('output_polar.dat','r')
+	# revenir au debut
+	alpha=numpy.zeros(nb_lines)
+	cx=numpy.zeros(nb_lines)
+	cz=numpy.zeros(nb_lines)
+	for i in xrange(nb_lines):
+		tmp=fid.readline()
+		tmp=tmp.split()
+		alpha[i]=float(tmp[0])
+		cx[i]=float(tmp[2])
+		cz[i]=float(tmp[1])
+	fid.close()
+	return -max(cz)+0.5
 
 def run_apame():
 	# compute flight conditions
@@ -77,9 +103,6 @@ P=[X[2],X[3]]
 T=[X[4],X[5]]
 
 fval = my_func(M,P,T)
-
-dakota_utils.write_output(sys.argv[2],fval,'my_function')
-
-
-
+cstr = my_constraint(M,P,T)
+dakota_utils.write_outputs(sys.argv[2],[fval,cstr],['my_function','my_constraint'])
     

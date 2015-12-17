@@ -1,0 +1,103 @@
+**********************************************************
+OPT++ version 2.4
+Job run at Thu Dec 17 16:20:24 2015
+
+**********************************************************
+
+		 NIPS Iteration Summary
+
+	Nonlinear Interior-Point Method Method with Line Search 
+ 
+  Merit Function =  1 
+
+  Iter    F(x)       mu          alpha      Merit    feval    btracks  Penalty
+
+    0     0.002231      0.03742 
+    1      0.02454      0.03742           1        231.7    2   0      1e+02
+    2      0.01308      0.03742      0.2518        216.2    4   1      1e+02
+    3      0.01775      0.03742           1        209.9    5   1      1e+02
+    4      0.01552      0.03742           1        208.1    6   1      1e+02
+    5      0.01563    0.0003742      0.9692        5.762    7   1      1e+02
+    6      0.01208    0.0003742      0.7123        4.885    8   1      1e+02
+    7     0.008349    0.0003742       0.335        4.606   10   2      1e+02
+    8     0.008655    0.0003742           1        4.332   11   2      1e+02
+    9     0.009537    3.742e-06      0.8976       0.1507   12   2      1e+02
+   10     0.008385    3.742e-06      0.9718      0.07686   13   2      1e+02
+   11     0.008267    3.742e-06           1      0.07552   14   2      1e+02
+   12      0.00848    3.742e-06           1      0.07408   15   2      1e+02
+   13     0.008358    3.742e-08      0.9143     0.009953   16   2      1e+02
+step_type = -1
+
+
+=========  Solution from Opt++  ===========
+
+Optimization method       = Nonlinear Interior-Point Method
+Dimension of the problem  = 6
+No. equalities            = 0
+No. inequalities          = 13
+Merit Function (0= NormFmu, 1 = Argaez, 2 = Vanderbei) = 1
+Return code               = -1 (Algorithm terminated - Number of backtracks exceeds the specified limit)
+No. iterations taken      = 14
+No. function evaluations  = 21
+No. gradient evaluations  = 21
+No. backtracks in lnsrch  = 7
+
+
+=========  Solution from Opt++  ===========
+
+
+    i	    xc 		 grad  		 fcn_accrcy 
+     0     0.02283	      0.6593	    2.22e-16
+     1      0.0191	     -0.1392	    2.22e-16
+     2      0.4184	     0.01107	    2.22e-16
+     3       0.372	   -0.008698	    2.22e-16
+     4      0.1112	     0.05235	    2.22e-16
+     5     0.09486	    -0.01724	    2.22e-16
+Function Value     =     0.008358
+Norm of gradient   =       0.6762
+
+
+==============================================
+
+
+
+=========  Solution from Opt++  ===========
+
+
+    i	   y    
+
+
+
+=====================================
+
+
+    i	    z 	      s
+
+    0     0.03298    1.24e-05
+    1   1.524e-05     0.02283
+    2   1.239e-05      0.0191
+    3    4.39e-06      0.1184
+    4   5.644e-06     0.07196
+    5   1.319e-05     0.03119
+    6   4.033e-05     0.01486
+    7   1.328e-05     0.02717
+    8    1.36e-05      0.0309
+    9   2.423e-09     0.08158
+   10   2.526e-06       0.128
+   11   7.904e-06     0.03881
+   12   4.708e-06     0.05514
+
+
+==========  Tolerances  ===========
+
+Machine Epsilon      = 2.22045e-16
+Maximum Step         = 1000
+Minimum Step         = 1.49012e-08
+Maximum Iter         = 500
+Maximum Backtracks   = 5
+Maximum Fcn Eval     = 1000
+Step Tolerance       = 1.49012e-08
+Function Tolerance   = 1e-06
+Constraint Tolerance = 1.49012e-08
+Gradient Tolerance   = 0.0001
+LineSearch Tolerance = 0.0001

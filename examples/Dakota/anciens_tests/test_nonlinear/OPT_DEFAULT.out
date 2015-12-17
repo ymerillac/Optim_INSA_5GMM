@@ -1,6 +1,6 @@
 **********************************************************
 OPT++ version 2.4
-Job run at Tue Nov 17 15:57:09 2015
+Job run at Thu Dec 17 12:01:00 2015
 
 **********************************************************
 
@@ -12,24 +12,26 @@ Job run at Tue Nov 17 15:57:09 2015
 
   Iter    F(x)       mu          alpha      Merit    feval    btracks  Penalty
 
-    0        33.64            0 
-    1        5.218            0           1        5.218    2   0      1e+02
-    2        4.018            0           1        4.018    3   0      1e+02
-    3            4            0           1            4    4   0      1e+02
-L2 norm =    7.071e-06  ftol =       0.0001
+    0        33.64        5.107 
+    1        13.07        5.107           1       -213.2    2   0      1e+02
+    2        5.985      0.05107           1        196.6    3   0      1e+02
+    3        4.223      0.05107           1        33.43    4   0      1e+02
+    4        4.049      0.05107           1         24.3    5   0      1e+02
+    5        4.001    0.0005107           1        4.444    6   0      1e+02
+L2 norm =    0.0006631  ftol =       0.0001
 
 
 =========  Solution from Opt++  ===========
 
 Optimization method       = Nonlinear Interior-Point Method
 Dimension of the problem  = 2
-No. equalities            = 1
-No. inequalities          = 0
+No. equalities            = 0
+No. inequalities          = 1
 Merit Function (0= NormFmu, 1 = Argaez, 2 = Vanderbei) = 1
 Return code               = 2 (Algorithm converged - Norm of gradient less than relative gradient tolerance)
-No. iterations taken      = 3
-No. function evaluations  = 4
-No. gradient evaluations  = 4
+No. iterations taken      = 5
+No. function evaluations  = 6
+No. gradient evaluations  = 6
 No. backtracks in lnsrch  = 0
 
 
@@ -38,8 +40,8 @@ No. backtracks in lnsrch  = 0
 
     i	    xc 		 grad  		 fcn_accrcy 
      0           2	       4.002	    2.22e-16
-     1   1.104e-08	       1e-05	    2.22e-16
-Function Value     =            4
+     1    0.000152	    0.000314	    2.22e-16
+Function Value     =        4.001
 Norm of gradient   =        4.002
 
 
@@ -52,7 +54,6 @@ Norm of gradient   =        4.002
 
     i	   y    
 
-    0       4.002
 
 
 =====================================
@@ -60,6 +61,7 @@ Norm of gradient   =        4.002
 
     i	    z 	      s
 
+    0       4.002    0.000201
 
 
 ==========  Tolerances  ===========
