@@ -31,12 +31,12 @@ def create_mesh_linear_interp(filename,root,tip,span,n_sections,n_naca_points=15
     Xu_tip,Xl_tip,Yu_tip,Yl_tip = NACA.create(m_tip,p_tip,t_tip,chord_tip,n_naca_points)
     upper_tip = numpy.array([Xu_tip,Yu_tip]).T
     lower_tip = numpy.array([Xl_tip,Yl_tip]).T
-    tip_section = numpy.concatenate((upper_tip[::-1],lower_tip[1:]))
+    tip_section = numpy.concatenate((lower_tip[::-1],upper_tip[1:]))
 
     Xu_root,Xl_root,Yu_root,Yl_root = NACA.create(m_root,p_root,t_root,chord_root,n_naca_points)
     upper_root = numpy.array([Xu_root,Yu_root]).T
     lower_root = numpy.array([Xl_root,Yl_root]).T
-    root_section = numpy.concatenate((upper_root[::-1],lower_root[1:]))
+    root_section = numpy.concatenate((lower_root[::-1],upper_root[1:]))
 
 
     # build mesh

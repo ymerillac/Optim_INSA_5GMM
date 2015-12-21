@@ -23,7 +23,7 @@ responses,
     objective_functions = 1
     nonlinear_inequality_constraints = 1
     descriptors = 'my_function' 'my_constraint'
-    numerical_gradients fd_step_size 0.0005
+    numerical_gradients fd_step_size 1 #tester aussi si avec -0.05 ca fait du <0 #tester avec une fonction spécifique pour le cz
     #no_gradients
     no_hessians
     #numerical_hessians
