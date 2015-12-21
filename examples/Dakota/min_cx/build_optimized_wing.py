@@ -41,7 +41,6 @@ file = open('optim_res.dat','r')
 tmp = file.readlines()
 tmp = tmp[-1]
 tmp = tmp.split()
-print tmp
 # attention : a changer quand il y aura plus de variables de design. Dernier argument : la corde
 root = [float(tmp[2]),float(tmp[4]),float(tmp[6]),1.]
 tip = [float(tmp[3]),float(tmp[5]),float(tmp[7]),1.]

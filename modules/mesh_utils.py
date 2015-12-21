@@ -45,10 +45,12 @@ def create_mesh_linear_interp(filename,root,tip,span,n_sections,n_naca_points=15
     vtk_model.SetDimensions(2*n_naca_points-1,n_sections,1)
     # build points
     vtk_points = vtk.vtkPoints()
+    print y_list
 
     for i in xrange(n_sections):
 	r = numpy.abs(y_list[i])/semi_span
 	current_section = (1.-r)*root_section + r*tip_section
+	print r
         for j in xrange(2*n_naca_points-1):
                 vtk_points.InsertNextPoint(current_section[j,0],y_list[i],current_section[j,1])
     # set points
