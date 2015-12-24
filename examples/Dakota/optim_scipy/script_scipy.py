@@ -7,12 +7,12 @@ import mesh_utils
 
 
 def my_func(X):
-	M=X[0:5]
-	P=X[5:10]
-	T=X[10:15]
-	n_sections=31
+	M=X[0:2]
+	P=X[2:4]
+	T=X[4:]
+	n_sections=21
 	n_naca_pts=50
-	chord=[2.,1.]
+	chord=[1.,1.]
 	span=10.
 	mesh_utils.write_wing_file(M,P,T,chord,span,n_sections,n_naca_pts)
 	NACA.create_wing('current_wing','output')
@@ -36,7 +36,7 @@ def my_func(X):
 		cx[i]=float(tmp[2])
 		cz[i]=float(tmp[1])
 	fid.close()
-	print(min(cx))
+	print 'DRAG >>> ', min(cx)
 	return min(cx)
 
 def run_apame():
@@ -76,8 +76,8 @@ def run_apame():
 
 
 ## Test de scipy 
-x0 = numpy.array([0.]*5+[0.4]*5+[0.12]*5)
-bounds = [(-0.05,0.05)]*5+[(0.3,0.5)]*5+[(0.08,0.15)]*5
+x0 = numpy.array([0.05]*2+[0.4]*2+[0.12]*2)
+bounds = [(0.,0.1)]*2+[(0.3,0.5)]*2+[(0.08,0.15)]*2
 res=scop.fmin_l_bfgs_b(my_func,x0,approx_grad=True,bounds=bounds,maxfun=30)
 #my_func(x0)
 
