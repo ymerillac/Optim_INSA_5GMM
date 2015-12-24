@@ -21,7 +21,7 @@ def create_mesh_linear_interp(filename,root,tip,span,n_sections,n_naca_points=15
 	raise ValueError("Le troisieme argument doit etre une liste contenant 4 valeurs (M,P,T,Chord).")
 
     ind_root=(n_sections-1)//2
-    semi_span = span/2
+    semi_span = span/2.
     theta = numpy.linspace(0.,numpy.pi,n_sections)
     y_list = -semi_span*numpy.cos(theta)
     y_list[ind_root]=0. # souvent 10^-16
