@@ -3,6 +3,7 @@ import numpy
 import dakota_utils
 import build_mesh
 from apame_utils import run_case
+from scipy import interpolate
 #import run_apame
 
 def my_func(M,P,T):
@@ -27,7 +28,8 @@ def my_func(M,P,T):
 		cx[i]=float(tmp[2])
 		cz[i]=float(tmp[1])
 	fid.close()
-	return min(cx)
+	f = interpolate.interp1d(numpy.array(cz), numpy.array(cx), kind=‘cubic’)
+	return min(f(0.5))
 
 def run_apame():
 	# compute flight conditions
@@ -45,8 +47,9 @@ def run_apame():
 	print "Airspeed=",airspeed*3.6
 
 	# list of alpha and beta to compute
-	alpha_list = numpy.zeros(1)
-	beta_list = numpy.zeros(1)
+	nrun=11
+	alpha_list = numpy.linspace(-10.,10.,nrun)
+	beta_list = numpy.zeros(nrun)
 
 	run_case('output.vtp',
 		 wake_length=10.,
