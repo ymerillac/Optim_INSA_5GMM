@@ -22,7 +22,7 @@ interface,
 responses,
     objective_functions = 1
     descriptors = 'my_function'
-    numerical_gradients fd_step_size 0.005
+    numerical_gradients fd_step_size 0.05
     #no_gradients
     no_hessians
     #numerical_hessians

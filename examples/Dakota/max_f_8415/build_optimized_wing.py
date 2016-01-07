@@ -3,7 +3,7 @@ import numpy
 from apame_utils import run_case
 import sys
 
-def run_apame(aoa):
+def run_apame():
 	# compute flight conditions
 	r=287.058 #J.kg-1.K-1
 	Patm = 101325.#Pa
@@ -19,8 +19,8 @@ def run_apame(aoa):
 	print "Airspeed=",airspeed*3.6
 
 	# list of alpha and beta to compute
-	alpha_list = numpy.array([aoa])
-	beta_list = numpy.zeros(1)
+	alpha_list = numpy.linspace(-10.,10.,21)
+	beta_list = numpy.zeros(21)
 
 	run_case('optimized_wing.vtp',
 		 wake_length=10.,
@@ -42,9 +42,8 @@ file = open(sys.argv[1],'r')
 tmp = file.readlines()
 tmp = tmp[-1]
 tmp = tmp.split()
-# attention : a changer quand il y aura plus de variables de design. Dernier argument : la corde
 root = [float(tmp[2]),float(tmp[4]),float(tmp[6]),1.]
-tip = [float(tmp[3]),float(tmp[5]),float(tmp[7]),float(tmp[10])]
-mesh_utils.create_mesh_linear_interp('optimized_wing',root,tip,float(tmp[9]),31,50)
-run_apame(float(tmp[8]))
+tip = [float(tmp[3]),float(tmp[5]),float(tmp[7]),float(tmp[9])]
+mesh_utils.create_mesh_linear_interp('optimized_wing',root,tip,float(tmp[8]),31,50)
+run_apame()
 file.close()

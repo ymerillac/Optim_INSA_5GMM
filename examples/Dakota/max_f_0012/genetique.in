@@ -1,7 +1,7 @@
 environment,
     graphics
     tabular_graphics_data
-    tabular_graphics_file = 'optim_res.dat'
+    tabular_graphics_file = 'optim_res_genetique.dat'
 
 method,
     max_iterations = 500

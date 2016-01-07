@@ -10,10 +10,10 @@ method,
 
 variables,
     continuous_design = 9
-    initial_point      0.0      0.0     0.4     0.4     0.12     0.12     -3.15    10.0      1.0
-    lower_bound        0.0      0.0     0.3     0.3     0.08     0.08     -10.0     5.0      0.5
-    upper_bound        0.05     0.05    0.5     0.5     0.15     0.15      10.0    15.0      1.5
-    descriptors      'm_root' 'm_top' 'p_root' 'p_top' 't_root' 't_top'  'alpha'  'span' 'chord_tip'
+    initial_point      0.08      0.08     0.4      0.4      0.15     0.15   -3.15     10.0      1.0
+    lower_bound        0.04      0.04     0.3      0.3      0.11     0.11   -10.0      5.0      0.5
+    upper_bound        0.12      0.12     0.5      0.5      0.19     0.19    10.0     15.0      1.5
+    descriptors      'm_root'  'm_top'  'p_root'  'p_top' 't_root' 't_top'  'alpha'  'span' 'chord_tip'
 
 interface,
     system

@@ -85,6 +85,6 @@ T = [X[4],X[5]]
 span = X[6]
 tip_chord = X[7]
 
-fval = my_func(M,P,T,span,tip_chord)
+fval = -my_func(M,P,T,span,tip_chord)
 dakota_utils.write_output(sys.argv[2],fval,'my_function')
     

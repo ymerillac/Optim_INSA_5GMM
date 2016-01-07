@@ -18,7 +18,7 @@ var=numpy.zeros((nb_it,nvar))
 func=numpy.zeros(nb_it)	
 fichier=open(inp_file,'r')
 fichier.readline()
-for l in xrange(nb_it):
+for l in xrange(nb_it-1): # on suppose que dans la derniere ligne on a deja recopie la meilleure valeur
 	tmp=fichier.readline()
 	tmp=tmp.split()
 	func[l]=float(tmp[-1])
