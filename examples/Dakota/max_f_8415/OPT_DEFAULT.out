@@ -1,0 +1,110 @@
+**********************************************************
+OPT++ version 2.4
+Job run at Sat Jan  9 04:20:42 2016
+
+**********************************************************
+readOptInput: No opt.input file found
+readOptInput: default values will be used
+
+
+=========  Initial state  ===========
+
+
+    i	    xc 		 grad  		 fcn_accrcy 
+     0        0.08	      -200.7	    2.22e-16
+     1        0.08	       63.59	    2.22e-16
+     2         0.4	       9.828	    2.22e-16
+     3         0.4	       22.26	    2.22e-16
+     4        0.15	       13.42	    2.22e-16
+     5        0.15	       61.29	    2.22e-16
+     6          10	      -2.185	    2.22e-16
+     7           1	       22.38	    2.22e-16
+Function Value     =       -43.12
+Norm of gradient   =        222.1
+
+
+==============================================
+
+
+		Bound constrained Quasi-Newton Method with Line Search
+
+  Iter      F(x)       ||grad||     ||step||      f/g
+
+    0       -43.12        222.1
+    1       -54.21          974      0.04428  N     2     2
+OptBCNewtonLike : variable added to working set : 0
+OptBCNewtonLike: Current working set  
+ ----- variable index:      0	0.12
+     2        -56.6         1410      0.03193  N     3     3
+OptBCNewtonLike : variable added to working set : 5
+OptBCNewtonLike: Current working set  
+ ----- variable index:      0	0.12     5	0.11
+     3       -256.8    6.446e+04      0.03249  N     4     4
+OptBCNewtonLike : variable added to working set : 4
+OptBCNewtonLike: Current working set  
+ ----- variable index:      0	0.12     4	0.11     5	0.11
+     4       -609.8    2.155e+05    0.0008813  B     7     5
+OptBCNewtonLike: Current working set  
+ ----- variable index:      0	0.12     4	0.11     5	0.11
+     5        -2055    8.444e+05    0.0002477  B    11     6
+OptBCNewtonLike: Current working set  
+ ----- variable index:      0	0.12     4	0.11     5	0.11
+     6   -2.374e+04    1.029e+07    0.0008437  B    14     7
+OptBCNewtonLike: Current working set  
+ ----- variable index:      0	0.12     4	0.11     5	0.11
+     7   -3.359e+04    1.459e+07    1.765e-07  B    21     8
+OptBCNewtonLike: Current working set  
+ ----- variable index:      0	0.12     4	0.11     5	0.11
+     8   -4.793e+04    2.083e+07    1.745e-06  B    27     9
+OptBCNewtonLike: Current working set  
+ ----- variable index:      0	0.12     4	0.11     5	0.11
+ OptBCNewtonLike : reduced_grad_norm = 1.48037e+07
+OptBCNewtonLike: Current working set  
+ ----- variable index:      0	0.12     4	0.11     5	0.11
+ OptBCNewtonLike : cannot take a step 
+
+
+=========  Solution from Opt++  ===========
+
+Optimization method       = Bound constrained Quasi-Newton
+Dimension of the problem  = 8
+No. of bound constraints  = 8
+Return code               = -1 (Algorithm terminated - No longer able to compute step with sufficient decrease)
+No. iterations taken      = 9
+No. function evaluations  = 34
+No. gradient evaluations  = 9
+
+
+=========  Solution from Opt++  ===========
+
+
+    i	    xc 		 grad  		 fcn_accrcy 
+     0        0.12	  -7.974e+06	    2.22e-16
+     1     0.06657	   1.435e+07	    2.22e-16
+     2      0.3804	   2.515e+06	    2.22e-16
+     3      0.3921	   2.436e+06	    2.22e-16
+     4        0.11	   8.699e+06	    2.22e-16
+     5        0.11	   8.698e+06	    2.22e-16
+     6          10	    9.56e+04	    2.22e-16
+     7      0.9907	   9.643e+05	    2.22e-16
+Function Value     =   -4.793e+04
+Norm of gradient   =    2.083e+07
+
+
+==============================================
+
+
+
+==========  Tolerances  ===========
+
+Machine Epsilon      = 2.22045e-16
+Maximum Step         = 1000
+Minimum Step         = 1.49012e-08
+Maximum Iter         = 500
+Maximum Backtracks   = 5
+Maximum Fcn Eval     = 1000
+Step Tolerance       = 1.49012e-08
+Function Tolerance   = 1e-06
+Constraint Tolerance = 1.49012e-08
+Gradient Tolerance   = 0.0001
+LineSearch Tolerance = 0.0001
