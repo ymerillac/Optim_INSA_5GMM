@@ -59,8 +59,8 @@ def run_apame():
 	print "Airspeed=",airspeed*3.6
 
 	# list of alpha and beta to compute
-	alpha_list = numpy.linspace(-10.,10.,21)
-	beta_list = numpy.zeros(21)
+	alpha_list = numpy.linspace(-5.,5.,11)
+	beta_list = numpy.zeros(11)
 
 	run_case('output.vtp',
 		 wake_length=10.,

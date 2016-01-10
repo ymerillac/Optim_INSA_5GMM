@@ -17,7 +17,7 @@ Re = rho*Airspeed*ref_chord/mu
 Cf = 0.0583/Re**0.2
 Sw = (ref_chord)*wingspan
 Cd_friction = Sw/Sref*Cf
-#run_case('onera_m6wing.vtp',10.,numpy.linspace(-5.,5.,11),numpy.zeros(11),Airspeed,rho,Patm,Mach,origin,wingspan,ref_chord,Sref,0,5.,1)
+#run_case('onera_m6wing.vtp',10.,numpy.linspace(-5.,5.,11),numpy.zeros(11),Airspeed,rho,Patm,Mach,origin,wingspan,ref_chord,Sref,0,50.,1)
 
 fichier_donnees = open('polar_m6.txt')
 donnees_cx = numpy.zeros(11)

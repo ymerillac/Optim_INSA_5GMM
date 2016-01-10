@@ -1,17 +1,23 @@
 import sys
 import numpy
 
-file = open(sys.argv[1]);
-values = file.readlines();
+file = open(sys.argv[1])
+values = file.readlines()
 values = values[1:]
 size = len(values)
 cost_function = numpy.zeros(size)
 
 for i in xrange(size):
-	values[i] = values[i].split()
-	cost_function[i] = float(values[-1])
+	tmp = values[i].split()
+	if float(tmp[-2]) < 3e-3 :
+		cost_function[i] = 1
+	else :
+		cost_function[i] = float(tmp[-2])
+	constraint_function = float(tmp[-1])
+	if constraint_function > 0:
+		cost_function[i] = max(cost_function)+0.1
 
 file.close()
-min = min(a)
-indice = a.index(min)+1
+min = min(cost_function)
+indice = cost_function.argmin()+1
 print('Minimal value : {}. Iteration : {}.'.format(min,indice))

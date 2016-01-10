@@ -1,0 +1,29 @@
+environment,
+    graphics
+    tabular_graphics_data
+    tabular_graphics_file = 'optim_res_quasi_genetique.dat'
+
+method,
+    optpp_q_newton
+    max_iterations = 500
+    convergence_tolerance = 1e-6
+
+variables,
+    continuous_design = 9
+    initial_point      0.002339846813 0.02760648797 0.4944744391 0.4342250308 0.08214489986 0.1148073837 3.563237211 14.87516758 0.5
+    lower_bound        0.0      0.0     0.3     0.3     0.08     0.08     -10.0     5.0      0.5
+    upper_bound        0.05     0.05    0.5     0.5     0.15     0.15      10.0    15.0      1.5
+    descriptors      'm_root' 'm_tip' 'p_root' 'p_tip' 't_root' 't_tip'  'alpha'  'span' 'chord_tip'
+
+interface,
+    system
+    analysis_driver = 'python myfunc.py'
+
+responses,
+    objective_functions = 1
+    nonlinear_inequality_constraints = 1
+    descriptors = 'my_function' 'my_constraint'
+    numerical_gradients fd_step_size 0.05
+    #no_gradients
+    no_hessians
+    #numerical_hessians

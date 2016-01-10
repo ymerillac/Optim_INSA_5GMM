@@ -1,6 +1,6 @@
 **********************************************************
 OPT++ version 2.4
-Job run at Sat Jan  9 04:20:42 2016
+Job run at Sun Jan 10 17:54:55 2016
 
 **********************************************************
 readOptInput: No opt.input file found
@@ -31,37 +31,33 @@ Norm of gradient   =        222.1
   Iter      F(x)       ||grad||     ||step||      f/g
 
     0       -43.12        222.1
-    1       -54.21          974      0.04428  N     2     2
+    1       -45.92        167.9      0.04428  N     2     2
 OptBCNewtonLike : variable added to working set : 0
 OptBCNewtonLike: Current working set  
  ----- variable index:      0	0.12
-     2        -56.6         1410      0.03193  N     3     3
+     2       -47.31        285.9      0.05011  N     3     3
 OptBCNewtonLike : variable added to working set : 5
 OptBCNewtonLike: Current working set  
  ----- variable index:      0	0.12     5	0.11
-     3       -256.8    6.446e+04      0.03249  N     4     4
+     3       -47.93        275.9     0.004792  B     5     4
+OptBCNewtonLike: Current working set  
+ ----- variable index:      0	0.12     5	0.11
+     4       -52.43        525.7      0.02475  N     6     5
 OptBCNewtonLike : variable added to working set : 4
 OptBCNewtonLike: Current working set  
  ----- variable index:      0	0.12     4	0.11     5	0.11
-     4       -609.8    2.155e+05    0.0008813  B     7     5
+     5       -52.49        513.8    7.407e-06  B    11     6
 OptBCNewtonLike: Current working set  
  ----- variable index:      0	0.12     4	0.11     5	0.11
-     5        -2055    8.444e+05    0.0002477  B    11     6
+     6       -52.57        514.3     9.14e-05  B    15     7
 OptBCNewtonLike: Current working set  
  ----- variable index:      0	0.12     4	0.11     5	0.11
-     6   -2.374e+04    1.029e+07    0.0008437  B    14     7
+     7       -52.57        515.5    7.088e-08  B    22     8
+checkConvg: snorm =    7.088e-08  stol =    1.501e-07
+OptBCNewtonLike : reduced_grad_norm = 285.959
 OptBCNewtonLike: Current working set  
  ----- variable index:      0	0.12     4	0.11     5	0.11
-     7   -3.359e+04    1.459e+07    1.765e-07  B    21     8
-OptBCNewtonLike: Current working set  
- ----- variable index:      0	0.12     4	0.11     5	0.11
-     8   -4.793e+04    2.083e+07    1.745e-06  B    27     9
-OptBCNewtonLike: Current working set  
- ----- variable index:      0	0.12     4	0.11     5	0.11
- OptBCNewtonLike : reduced_grad_norm = 1.48037e+07
-OptBCNewtonLike: Current working set  
- ----- variable index:      0	0.12     4	0.11     5	0.11
- OptBCNewtonLike : cannot take a step 
+ OptBCNewtonLike : convergence achieved. 
 
 
 =========  Solution from Opt++  ===========
@@ -69,26 +65,26 @@ OptBCNewtonLike: Current working set
 Optimization method       = Bound constrained Quasi-Newton
 Dimension of the problem  = 8
 No. of bound constraints  = 8
-Return code               = -1 (Algorithm terminated - No longer able to compute step with sufficient decrease)
-No. iterations taken      = 9
-No. function evaluations  = 34
-No. gradient evaluations  = 9
+Return code               = 1 (Algorithm converged - Norm of last step is less than step tolerance)
+No. iterations taken      = 7
+No. function evaluations  = 22
+No. gradient evaluations  = 8
 
 
 =========  Solution from Opt++  ===========
 
 
     i	    xc 		 grad  		 fcn_accrcy 
-     0        0.12	  -7.974e+06	    2.22e-16
-     1     0.06657	   1.435e+07	    2.22e-16
-     2      0.3804	   2.515e+06	    2.22e-16
-     3      0.3921	   2.436e+06	    2.22e-16
-     4        0.11	   8.699e+06	    2.22e-16
-     5        0.11	   8.698e+06	    2.22e-16
-     6          10	    9.56e+04	    2.22e-16
-     7      0.9907	   9.643e+05	    2.22e-16
-Function Value     =   -4.793e+04
-Norm of gradient   =    2.083e+07
+     0        0.12	         -84	    2.22e-16
+     1     0.04227	      -264.8	    2.22e-16
+     2       0.361	       66.22	    2.22e-16
+     3      0.3882	       13.34	    2.22e-16
+     4        0.11	       338.9	    2.22e-16
+     5        0.11	       249.2	    2.22e-16
+     6          10	      -3.067	    2.22e-16
+     7       1.027	      -84.23	    2.22e-16
+Function Value     =       -52.57
+Norm of gradient   =        515.5
 
 
 ==============================================
