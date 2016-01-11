@@ -1,6 +1,7 @@
 from apame_utils import run_case
 import math
 import numpy
+from matplotlib.pyplot import *
 
 gamma = 1.4
 Patm = 101325.#Pa
@@ -40,7 +41,7 @@ for i in xrange(11):
 	tmp2 = tmp[i].split()
 	tmp_cz = tmp2[-2]
 	tmp_cx = tmp2[-1]
-	apame_cx[i] = float(tmp_cx) #+ Cd_friction
+	apame_cx[i] = float(tmp_cx)
 	apame_cz[i] = float(tmp_cz)
 fichier_apame.close()
 
@@ -50,4 +51,16 @@ diff_cz = numpy.zeros(11)
 diff_cz = 100.*numpy.divide(abs(apame_cz-donnees_cz),abs(donnees_cz))
 print 'Ecart relatif, Cx\n',diff_cx
 print '\nEcart relatif, Cz\n',diff_cz
-
+figure()
+plot(donnees_cx,label="Data")
+plot(apame_cx,label="Apame",color="r")
+legend(loc=9)
+title("Cd")
+xlabel("alpha")
+figure()
+plot(donnees_cz,label="Data")
+plot(apame_cz,label="Apame",color="r")
+legend(loc=9)
+title("Cl")
+xlabel("alpha")
+show()

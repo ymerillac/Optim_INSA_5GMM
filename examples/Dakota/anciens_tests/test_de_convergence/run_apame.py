@@ -17,7 +17,7 @@ def run():
 	print "Airspeed=",airspeed*3.6
 
 	# list of alpha and beta to compute
-	alpha_list = numpy.zeros(1)
+	alpha_list = -5.*numpy.ones(1)
 	beta_list = numpy.zeros(1)
 
 	run_case('output.vtp',

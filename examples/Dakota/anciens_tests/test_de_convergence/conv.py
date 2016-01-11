@@ -12,9 +12,9 @@ Cz=numpy.zeros(49)
 it=0
 for i in N_sections:
 	print('Test de convergence - section numero {}'.format(int(i)))
-	M=numpy.zeros(i)
-	P=0.4*numpy.ones(i)
-	T=0.12*numpy.ones(i)
+	M=0.08*numpy.ones(2)
+	P=0.4*numpy.ones(2)
+	T=0.15*numpy.ones(2)
 	create_mesh(M,P,T,int(i))
 	run()
 	fid = open('output_polar.dat','r')
