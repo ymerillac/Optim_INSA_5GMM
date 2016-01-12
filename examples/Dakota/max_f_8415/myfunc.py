@@ -6,7 +6,7 @@ import NACA
 from apame_utils import run_case
 
 # constantes
-n_sections=31
+n_sections=51
 n_naca_pts=50
 chord=[1.,1.]
 Sref=10.
